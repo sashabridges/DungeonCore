@@ -1,0 +1,5 @@
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\bin\Release\net8.0\publish\HelloWorld.exe
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\bin\Release\net8.0\publish\HelloWorld.dll
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\bin\Release\net8.0\publish\HelloWorld.deps.json
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\bin\Release\net8.0\publish\HelloWorld.runtimeconfig.json
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\bin\Release\net8.0\publish\HelloWorld.pdb

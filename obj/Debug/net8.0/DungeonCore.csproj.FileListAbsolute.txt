@@ -1,0 +1,14 @@
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\bin\Debug\net8.0\DungeonCore.exe
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\bin\Debug\net8.0\DungeonCore.deps.json
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\bin\Debug\net8.0\DungeonCore.runtimeconfig.json
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\bin\Debug\net8.0\DungeonCore.dll
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\bin\Debug\net8.0\DungeonCore.pdb
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\obj\Debug\net8.0\DungeonCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\obj\Debug\net8.0\DungeonCore.AssemblyInfoInputs.cache
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\obj\Debug\net8.0\DungeonCore.AssemblyInfo.cs
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\obj\Debug\net8.0\DungeonCore.csproj.CoreCompileInputs.cache
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\obj\Debug\net8.0\DungeonCore.dll
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\obj\Debug\net8.0\refint\DungeonCore.dll
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\obj\Debug\net8.0\DungeonCore.pdb
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\obj\Debug\net8.0\DungeonCore.genruntimeconfig.cache
+D:\Users\Sasha\source\repos\HelloWorld\HelloWorld\obj\Debug\net8.0\ref\DungeonCore.dll
