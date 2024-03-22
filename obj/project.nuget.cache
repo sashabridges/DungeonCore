@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "r7XY4BbsSS2GXLEUkHIHwtDsk3LwYjacQfRC6ZR6EMiCWNTxIQfAfXWIs7kKBkhfDJdzkL2V3X52vitDT3HcUA==",
+  "dgSpecHash": "sn0ezSALmis5zRlRl3r2WkdSDlZu9ggTPsUnU4JgJYYfSAqBwMkLKdqKIfE/op7/nCUunwALV2ROZLLgv+6Sow==",
   "success": true,
   "projectFilePath": "D:\\Users\\sasha\\source\\repos\\HelloWorld\\DungeonCore\\DungeonCore.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Sasha\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
