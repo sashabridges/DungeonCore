@@ -51,25 +51,21 @@ namespace DungeonCore
             if (playing = true)
             {
                 Console.WriteLine("Good! Let's get started...");
-                
+
                 if (saveData == "no")
                 {
                     NewSave(user);
-                } else
+                }
+                else
                 {
                     UsedSave(user);
                 }
-               
-               Console.Write($"{Environment.NewLine}Your first mineral is... a {user.coreFirstMineral}! That really rocks.");
-               Console.Write($"{Environment.NewLine}Your first animal is... a {user.coreFirstAnimal}! Hopefully it doesn't bite.");
-
-
-            } else
+            } 
+            else
             {
                 Console.WriteLine("Not ready? See you later!");
                 GoodBye(name, currentDate);
             }
-
             GoodBye(name, currentDate);
         }
 
@@ -176,45 +172,30 @@ namespace DungeonCore
 
             FirstPlantEvent(user);
 
-            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
-            Console.WriteLine($"{Environment.NewLine}HP + 5");
-            Console.WriteLine($"{Environment.NewLine}MP + 5");
-            Console.WriteLine($"{Environment.NewLine}DEF + 2");
-            Console.WriteLine($"{Environment.NewLine}ATK + 2");
-            Console.WriteLine($"{Environment.NewLine}SPD + 1");
+            FirstAnimalEvent(user);
 
-            LevelUp(user);
-            Console.Write($"{Environment.NewLine}Press any key to continue...");
-            Console.ReadKey(true);
-            Console.Write($"{Environment.NewLine}");
-            user.PrintCurrentStats();
+            FirstMineralEvent(user);
 
-            Console.Write($"{Environment.NewLine}Press any key to continue...");
-            Console.ReadKey(true);
-            Console.Write($"{Environment.NewLine}");
+            FirstAdventurerEvent(user);
 
-            Console.Write($"{Environment.NewLine}You have become a bit stronger. But your Hit Points (HP) and Mana Points (MP) are not at their full potential.");
-            Console.Write($"{Environment.NewLine}You can rest to gain HP or meditate to gain MP.");
-            Console.Write($"{Environment.NewLine}Will you (r)est or (m)editate?");
+            SecondAnimalEvent(user);
 
-            var option = Console.ReadLine();
+            SecondMineralEvent(user);
 
-            switch (option.ToLower())
-            {
-                case "m":
-                    Console.WriteLine("You meditate for a while. You gain 1 MP. You feel relaxed.");
-                    user.coreMP++;
-                    break;
-                case "r":
-                    Console.WriteLine("You rest for a while. You gain 1 HP. You feel refreshed.");
-                    user.coreHP++;
-                    break;
-                default:
-                    Console.WriteLine("You decide to do neither. You hope you don't regret this.");
-                    break;
-            }
+            SecondAdventurerEvent(user);
 
-            SaveFile(user);
+            ThirdMineralEvent(user);
+
+            SecondPlantEvent(user);
+
+            ThirdPlantEvent(user);
+
+            ThirdAdventurerEvent(user);
+
+            ThirdAnimalEvent(user);
+
+            FinalEvent(user);
+
         }
 
         static void UsedSave(UserCore user)
@@ -243,40 +224,37 @@ namespace DungeonCore
                     FirstAnimalEvent(user);
                     break;
                 case 3:
-                    Console.WriteLine("You rest for a while. You gain 1 HP. You feel refreshed.");
-                    user.coreHP++;
+                    FirstMineralEvent(user);
                     break;
                 case 4:
-                    Console.WriteLine("You rest for a while. You gain 1 HP. You feel refreshed.");
-                    user.coreHP++;
+                    FirstAdventurerEvent(user);
                     break;
                 case 5:
-                    Console.WriteLine("You rest for a while. You gain 1 HP. You feel refreshed.");
-                    user.coreHP++;
+                    SecondAnimalEvent(user);
                     break;
                 case 6:
-                    Console.WriteLine("You rest for a while. You gain 1 HP. You feel refreshed.");
-                    user.coreHP++;
+                   SecondMineralEvent(user);
                     break;
                 case 7:
-                    Console.WriteLine("You rest for a while. You gain 1 HP. You feel refreshed.");
-                    user.coreHP++;
+                    SecondAdventurerEvent(user);
                     break;
                 case 8:
-                    Console.WriteLine("You rest for a while. You gain 1 HP. You feel refreshed.");
-                    user.coreHP++;
+                    ThirdMineralEvent(user);
                     break;
                 case 9:
-                    Console.WriteLine("You rest for a while. You gain 1 HP. You feel refreshed.");
-                    user.coreHP++;
+                    SecondPlantEvent(user);
                     break;
                 case 10:
-                    Console.WriteLine("You rest for a while. You gain 1 HP. You feel refreshed.");
-                    user.coreHP++;
+                   ThirdPlantEvent(user);
                     break;
                 case 11:
-                    Console.WriteLine("You rest for a while. You gain 1 HP. You feel refreshed.");
-                    user.coreHP++;
+                    ThirdAdventurerEvent (user);
+                    break;
+                case 12:
+                    ThirdAnimalEvent(user);
+                    break;
+                case 13:
+                    FinalEvent(user);
                     break;
                 default:
                     Console.WriteLine("You decide to do neither. You hope you don't regret this.");
@@ -328,161 +306,167 @@ namespace DungeonCore
                     break;
             }
 
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            Console.WriteLine($"{Environment.NewLine}HP + 5");
+            Console.WriteLine($"{Environment.NewLine}MP + 5");
+            Console.WriteLine($"{Environment.NewLine}DEF + 2");
+            Console.WriteLine($"{Environment.NewLine}ATK + 2");
+            Console.WriteLine($"{Environment.NewLine}SPD + 1");
+
+            LevelUp(user);
+            Console.Write($"{Environment.NewLine}Press any key to continue...");
+            Console.ReadKey(true);
+            Console.Write($"{Environment.NewLine}");
+            user.PrintCurrentStats();
+
+            Console.Write($"{Environment.NewLine}Press any key to continue...");
+            Console.ReadKey(true);
+            Console.Write($"{Environment.NewLine}");
+
+            Console.Write($"{Environment.NewLine}You have become a bit stronger. But your Hit Points (HP) and Mana Points (MP) are not at their full potential.");
+            
+            user.RestorePoints();
+
             user.savePoint = 1;
-            Console.Write($"{Environment.NewLine}Do you want to save the game? Yes or no?");
-            var saving = Console.ReadLine();
-
-            if (saving != null || saving == "")
-            {
-                saving = "no";
-            }
-
-            if (saving.ToLower() == "yes")
-            {
-                SaveFile(user);
-            }
+            AskToSave(user);
 
         }
 
         static void SecondPlantEvent(UserCore user)
         {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            LevelUp(user);
+            user.PrintCurrentStats();
+            user.RestorePoints();
             user.savePoint = 9;
-            Console.Write($"{Environment.NewLine}Do you want to save the game? Yes or no?");
-            var saving = Console.ReadLine();
-
-            if (saving != null || saving == "")
-            {
-                saving = "no";
-            }
-
-            if (saving.ToLower() == "yes")
-            {
-                SaveFile(user);
-            }
+            AskToSave(user);
         }
 
         static void ThirdPlantEvent(UserCore user)
         {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            LevelUp(user);
+            user.PrintCurrentStats();
+            user.RestorePoints();
             user.savePoint = 10;
-            Console.Write($"{Environment.NewLine}Do you want to save the game? Yes or no?");
-            var saving = Console.ReadLine();
-
-            if (saving != null || saving == "")
-            {
-                saving = "no";
-            }
-
-            if (saving.ToLower() == "yes")
-            {
-                SaveFile(user);
-            }
+            AskToSave(user);
         }
 
         static void FirstAnimalEvent(UserCore user)
         {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            Console.Write($"{Environment.NewLine}Your first animal is... a {user.coreFirstAnimal}! Hopefully it doesn't bite.");
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            LevelUp(user);
+            user.PrintCurrentStats();
+            user.RestorePoints();
             user.savePoint = 2;
-            Console.Write($"{Environment.NewLine}Do you want to save the game? Yes or no?");
-            var saving = Console.ReadLine();
-
-            if (saving != null || saving == "")
-            {
-                saving = "no";
-            }
-
-            if (saving.ToLower() == "yes")
-            {
-                SaveFile(user);
-            }
+            AskToSave(user);
         }
 
         static void SecondAnimalEvent(UserCore user)
         {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            LevelUp(user);
+            user.PrintCurrentStats();
+            user.RestorePoints();
             user.savePoint = 5;
-            Console.Write($"{Environment.NewLine}Do you want to save the game? Yes or no?");
-            var saving = Console.ReadLine();
-
-            if (saving != null || saving == "")
-            {
-                saving = "no";
-            }
-
-            if (saving.ToLower() == "yes")
-            {
-                SaveFile(user);
-            }
+            AskToSave(user);
         }
 
         static void ThirdAnimalEvent(UserCore user)
         {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            LevelUp(user);
+            user.PrintCurrentStats();
+            user.RestorePoints();
             user.savePoint = 12;
-            Console.Write($"{Environment.NewLine}Do you want to save the game? Yes or no?");
-            var saving = Console.ReadLine();
-
-            if (saving != null || saving == "")
-            {
-                saving = "no";
-            }
-
-            if (saving.ToLower() == "yes")
-            {
-                SaveFile(user);
-            }
+            AskToSave(user);
         }
 
         static void FirstMineralEvent(UserCore user)
         {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            Console.Write($"{Environment.NewLine}Your first mineral is... a {user.coreFirstMineral}! That really rocks.");
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            LevelUp(user);
+            user.PrintCurrentStats();
+            user.RestorePoints();
             user.savePoint = 3;
-            Console.Write($"{Environment.NewLine}Do you want to save the game? Yes or no?");
-            var saving = Console.ReadLine();
-
-            if (saving != null || saving == "")
-            {
-                saving = "no";
-            }
-
-            if (saving.ToLower() == "yes")
-            {
-                SaveFile(user);
-            }
+            AskToSave(user);
         }
 
         static void SecondMineralEvent(UserCore user)
         {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            LevelUp(user);
+            user.PrintCurrentStats();
+            user.RestorePoints();
             user.savePoint = 6;
-            Console.Write($"{Environment.NewLine}Do you want to save the game? Yes or no?");
-            var saving = Console.ReadLine();
-
-            if (saving != null || saving == "")
-            {
-                saving = "no";
-            }
-
-            if (saving.ToLower() == "yes")
-            {
-                SaveFile(user);
-            }
+            AskToSave(user);
         }
 
         static void ThirdMineralEvent(UserCore user)
         {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            LevelUp(user);
+            user.PrintCurrentStats();
+            user.RestorePoints();
             user.savePoint = 8;
-            Console.Write($"{Environment.NewLine}Do you want to save the game? Yes or no?");
-            var saving = Console.ReadLine();
-
-            if (saving != null || saving == "")
-            {
-                saving = "no";
-            }
-
-            if (saving.ToLower() == "yes")
-            {
-                SaveFile(user);
-            }
+            AskToSave(user);
         }
 
         static void FirstAdventurerEvent(UserCore user)
         {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            LevelUp(user);
+            user.PrintCurrentStats();
+            user.RestorePoints();
             user.savePoint = 4;
+            AskToSave(user);
+        }
+
+        static void SecondAdventurerEvent(UserCore user)
+        {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            LevelUp(user);
+            user.PrintCurrentStats();
+            user.RestorePoints();
+            user.savePoint = 7;
+            AskToSave(user);
+        }
+
+        static void ThirdAdventurerEvent(UserCore user)
+        {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+            LevelUp(user);
+            user.PrintCurrentStats();
+            user.RestorePoints();
+            user.savePoint = 11;
+            AskToSave(user);
+            
+        }
+
+        static void FinalEvent(UserCore user)
+        {
+            Console.WriteLine("Save Point: " + user.savePoint);
+            user.savePoint = 13;
+            Console.WriteLine("After everything, you're finally a thriving dungeon... You continue living out your days eventfully.");
+            Console.WriteLine("Here are your final stats: ");
+            user.PrintCurrentStats();
+        }
+
+        static void AskToSave(UserCore user)
+        {
             Console.Write($"{Environment.NewLine}Do you want to save the game? Yes or no?");
             var saving = Console.ReadLine();
 
@@ -495,19 +479,13 @@ namespace DungeonCore
             {
                 SaveFile(user);
             }
-        }
-
-        static void FinalEvent(UserCore user)
-        {
-            user.savePoint = 13;
-            Console.WriteLine("After everything, you're finally a thriving dungeon... You continue living out your days eventfully.");
         }
 
         static void SaveFile(UserCore user)
         {
             Console.WriteLine("Saving your data to json format...");
 
-            string fileName = "name.json";
+            string fileName = "userdata.json";
             string jsonString = JsonSerializer.Serialize(user);
             File.WriteAllText(fileName, jsonString);
         }
@@ -517,7 +495,7 @@ namespace DungeonCore
           
             Console.WriteLine("Loading save data...");
 
-            string fileName = "name.json";
+            string fileName = "userdata.json";
             string jsonString = File.ReadAllText(fileName);
             user = JsonSerializer.Deserialize<UserCore>(jsonString);
 
