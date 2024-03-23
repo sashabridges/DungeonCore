@@ -176,23 +176,23 @@ namespace DungeonCore
 
             FirstMineralEvent(user);
 
-            FirstAdventurerEvent(user);
+            //FirstAdventurerEvent(user);
 
-            SecondAnimalEvent(user);
+            //SecondAnimalEvent(user);
 
-            SecondMineralEvent(user);
+            //SecondMineralEvent(user);
 
-            SecondAdventurerEvent(user);
+            //SecondAdventurerEvent(user);
 
-            ThirdMineralEvent(user);
+            //ThirdMineralEvent(user);
 
-            SecondPlantEvent(user);
+            //SecondPlantEvent(user);
 
-            ThirdPlantEvent(user);
+            //ThirdPlantEvent(user);
 
-            ThirdAdventurerEvent(user);
+            //ThirdAdventurerEvent(user);
 
-            ThirdAnimalEvent(user);
+            //ThirdAnimalEvent(user);
 
             FinalEvent(user);
 
@@ -226,33 +226,33 @@ namespace DungeonCore
                 case 3:
                     FirstMineralEvent(user);
                     break;
-                case 4:
-                    FirstAdventurerEvent(user);
-                    break;
-                case 5:
-                    SecondAnimalEvent(user);
-                    break;
-                case 6:
-                   SecondMineralEvent(user);
-                    break;
-                case 7:
-                    SecondAdventurerEvent(user);
-                    break;
-                case 8:
-                    ThirdMineralEvent(user);
-                    break;
-                case 9:
-                    SecondPlantEvent(user);
-                    break;
-                case 10:
-                   ThirdPlantEvent(user);
-                    break;
-                case 11:
-                    ThirdAdventurerEvent (user);
-                    break;
-                case 12:
-                    ThirdAnimalEvent(user);
-                    break;
+                //case 4:
+                //    FirstAdventurerEvent(user);
+                //    break;
+                //case 5:
+                //    SecondAnimalEvent(user);
+                //    break;
+                //case 6:
+                //   SecondMineralEvent(user);
+                //    break;
+                //case 7:
+                //    SecondAdventurerEvent(user);
+                //    break;
+                //case 8:
+                //    ThirdMineralEvent(user);
+                //    break;
+                //case 9:
+                //    SecondPlantEvent(user);
+                //    break;
+                //case 10:
+                //   ThirdPlantEvent(user);
+                //    break;
+                //case 11:
+                //    ThirdAdventurerEvent (user);
+                //    break;
+                //case 12:
+                //    ThirdAnimalEvent(user);
+                //    break;
                 case 13:
                     FinalEvent(user);
                     break;
@@ -332,27 +332,27 @@ namespace DungeonCore
 
         }
 
-        static void SecondPlantEvent(UserCore user)
-        {
-            Console.WriteLine("Save Point: " + user.savePoint);
-            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
-            LevelUp(user);
-            user.PrintCurrentStats();
-            user.RestorePoints();
-            user.savePoint = 9;
-            AskToSave(user);
-        }
+        //static void SecondPlantEvent(UserCore user)
+        //{
+        //    Console.WriteLine("Save Point: " + user.savePoint);
+        //    Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+        //    LevelUp(user);
+        //    user.PrintCurrentStats();
+        //    user.RestorePoints();
+        //    user.savePoint = 9;
+        //    AskToSave(user);
+        //}
 
-        static void ThirdPlantEvent(UserCore user)
-        {
-            Console.WriteLine("Save Point: " + user.savePoint);
-            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
-            LevelUp(user);
-            user.PrintCurrentStats();
-            user.RestorePoints();
-            user.savePoint = 10;
-            AskToSave(user);
-        }
+        //static void ThirdPlantEvent(UserCore user)
+        //{
+        //    Console.WriteLine("Save Point: " + user.savePoint);
+        //    Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+        //    LevelUp(user);
+        //    user.PrintCurrentStats();
+        //    user.RestorePoints();
+        //    user.savePoint = 10;
+        //    AskToSave(user);
+        //}
 
         static void FirstAnimalEvent(UserCore user)
         {
@@ -419,27 +419,27 @@ namespace DungeonCore
             AskToSave(user);
         }
 
-        static void SecondAnimalEvent(UserCore user)
-        {
-            Console.WriteLine("Save Point: " + user.savePoint);
-            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
-            LevelUp(user);
-            user.PrintCurrentStats();
-            user.RestorePoints();
-            user.savePoint = 5;
-            AskToSave(user);
-        }
+        //static void SecondAnimalEvent(UserCore user)
+        //{
+        //    Console.WriteLine("Save Point: " + user.savePoint);
+        //    Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+        //    LevelUp(user);
+        //    user.PrintCurrentStats();
+        //    user.RestorePoints();
+        //    user.savePoint = 5;
+        //    AskToSave(user);
+        //}
 
-        static void ThirdAnimalEvent(UserCore user)
-        {
-            Console.WriteLine("Save Point: " + user.savePoint);
-            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
-            LevelUp(user);
-            user.PrintCurrentStats();
-            user.RestorePoints();
-            user.savePoint = 12;
-            AskToSave(user);
-        }
+        //static void ThirdAnimalEvent(UserCore user)
+        //{
+        //    Console.WriteLine("Save Point: " + user.savePoint);
+        //    Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+        //    LevelUp(user);
+        //    user.PrintCurrentStats();
+        //    user.RestorePoints();
+        //    user.savePoint = 12;
+        //    AskToSave(user);
+        //}
 
         static void FirstMineralEvent(UserCore user)
         {
@@ -504,61 +504,61 @@ namespace DungeonCore
             AskToSave(user);
         }
 
-        static void SecondMineralEvent(UserCore user)
-        {
-            Console.WriteLine("Save Point: " + user.savePoint);
-            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
-            LevelUp(user);
-            user.PrintCurrentStats();
-            user.RestorePoints();
-            user.savePoint = 6;
-            AskToSave(user);
-        }
+        //static void SecondMineralEvent(UserCore user)
+        //{
+        //    Console.WriteLine("Save Point: " + user.savePoint);
+        //    Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+        //    LevelUp(user);
+        //    user.PrintCurrentStats();
+        //    user.RestorePoints();
+        //    user.savePoint = 6;
+        //    AskToSave(user);
+        //}
 
-        static void ThirdMineralEvent(UserCore user)
-        {
-            Console.WriteLine("Save Point: " + user.savePoint);
-            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
-            LevelUp(user);
-            user.PrintCurrentStats();
-            user.RestorePoints();
-            user.savePoint = 8;
-            AskToSave(user);
-        }
+        //static void ThirdMineralEvent(UserCore user)
+        //{
+        //    Console.WriteLine("Save Point: " + user.savePoint);
+        //    Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+        //    LevelUp(user);
+        //    user.PrintCurrentStats();
+        //    user.RestorePoints();
+        //    user.savePoint = 8;
+        //    AskToSave(user);
+        //}
 
-        static void FirstAdventurerEvent(UserCore user)
-        {
-            Console.WriteLine("Save Point: " + user.savePoint);
-            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
-            LevelUp(user);
-            user.PrintCurrentStats();
-            user.RestorePoints();
-            user.savePoint = 4;
-            AskToSave(user);
-        }
+        //static void FirstAdventurerEvent(UserCore user)
+        //{
+        //    Console.WriteLine("Save Point: " + user.savePoint);
+        //    Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+        //    LevelUp(user);
+        //    user.PrintCurrentStats();
+        //    user.RestorePoints();
+        //    user.savePoint = 4;
+        //    AskToSave(user);
+        //}
 
-        static void SecondAdventurerEvent(UserCore user)
-        {
-            Console.WriteLine("Save Point: " + user.savePoint);
-            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
-            LevelUp(user);
-            user.PrintCurrentStats();
-            user.RestorePoints();
-            user.savePoint = 7;
-            AskToSave(user);
-        }
+        //static void SecondAdventurerEvent(UserCore user)
+        //{
+        //    Console.WriteLine("Save Point: " + user.savePoint);
+        //    Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+        //    LevelUp(user);
+        //    user.PrintCurrentStats();
+        //    user.RestorePoints();
+        //    user.savePoint = 7;
+        //    AskToSave(user);
+        //}
 
-        static void ThirdAdventurerEvent(UserCore user)
-        {
-            Console.WriteLine("Save Point: " + user.savePoint);
-            Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
-            LevelUp(user);
-            user.PrintCurrentStats();
-            user.RestorePoints();
-            user.savePoint = 11;
-            AskToSave(user);
+        //static void ThirdAdventurerEvent(UserCore user)
+        //{
+        //    Console.WriteLine("Save Point: " + user.savePoint);
+        //    Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
+        //    LevelUp(user);
+        //    user.PrintCurrentStats();
+        //    user.RestorePoints();
+        //    user.savePoint = 11;
+        //    AskToSave(user);
             
-        }
+        //}
 
         static void FinalEvent(UserCore user)
         {
