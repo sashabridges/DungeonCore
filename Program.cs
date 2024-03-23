@@ -357,7 +357,60 @@ namespace DungeonCore
         static void FirstAnimalEvent(UserCore user)
         {
             Console.WriteLine("Save Point: " + user.savePoint);
+            Console.WriteLine($"{Environment.NewLine}While you were investigating your {user.coreFirstPlant}, it looks like an animal wandered into your space.");
+            Console.WriteLine("At first, you can't tell what it is. The shape of the creature seems fuzzy until you focus on it. You don't have eyes, after all!");
             Console.Write($"{Environment.NewLine}Your first animal is... a {user.coreFirstAnimal}! Hopefully it doesn't bite.");
+
+            Console.Write($"The {user.coreFirstAnimal} seems quite small and frail. It wanders slowly and carefully to another {user.coreFirstPlant} like it expects ");
+            Console.Write("to be attacked at any second. It takes a wary bite of the plant. What do you do?");
+            Console.Write($"{Environment.NewLine}1 - Save the {user.coreFirstPlant}?");
+            Console.Write($"{Environment.NewLine}2 - Stop the {user.coreFirstAnimal}?");
+            Console.Write($"{Environment.NewLine}3 - Leave them both alone?");
+
+            var option = Console.ReadLine();
+            int opt = 0;
+            var rand = new Random();
+            var randNum = 0;
+            randNum = rand.Next(1, 100);
+
+            if (!Int32.TryParse(option, out randNum))
+            {
+                Console.WriteLine($"Oops! You didn't enter a correct value and accidentally get confused!");
+                option = randNum.ToString();
+            }
+
+            opt = Convert.ToInt32(option);
+
+            switch (opt)
+            {
+                case 1:
+                    Console.WriteLine($"{Environment.NewLine}You use your MP to protect your {user.coreFirstPlant}, manifesting a small {user.coreColor} barrier around it. The {user.coreFirstAnimal} is startled and panics.");
+                    Console.WriteLine($"{Environment.NewLine}You calm down the {user.coreFirstAnimal} by singing a lullaby. You gain your first animal companion, the {user.coreFirstAnimal}.");
+                    Console.WriteLine($"{Environment.NewLine}You gain 20 exp. You use 1 MP. You gain 1 DEF.");
+                    user.coreDEF++;
+                    user.coreMP--;
+                    break;
+                case 2:
+                    Console.WriteLine($"{Environment.NewLine}You attack the {user.coreFirstAnimal} with a magical burst of energy. The {user.coreFirstAnimal} is weakened and shakes in fear.");
+                    Console.WriteLine($"{Environment.NewLine}You calm down the {user.coreFirstAnimal} by distracting it with pretty sparkling lights. You gain your first animal companion, the {user.coreFirstAnimal}.");
+                    Console.WriteLine($"{Environment.NewLine}You gain 20 exp. You use 1 MP. You gain 1 ATK.");
+                    user.coreMP--;
+                    user.coreATK++;
+                    break;
+                case 3:
+                    Console.WriteLine($"{Environment.NewLine}The {user.coreFirstAnimal} continues eating the {user.coreFirstPlant}. With each bite, the {user.coreFirstAnimal} looks like it's getting stronger.");
+                    Console.Write($" It looks like {user.coreColor} sparkling mist is being emitted from the plant! How strange. You gain your first animal companion, the {user.coreFirstAnimal}.");
+                    Console.WriteLine($"{Environment.NewLine}You gain 20 exp. You gain 5 MP.");
+                    user.coreMP = user.coreMP + 5;
+                    break;
+                default:
+                    Console.WriteLine($"{Environment.NewLine}SSoommeetthhiinngg  ssttrraannggee  hhaappppeenneedd!!  The {user.coreFirstPlant} explodes into a {user.coreColor} smoke.  The {user.coreFirstAnimal} is startled and panics.");
+                    Console.WriteLine($"{Environment.NewLine}You gain 20 exp. You lose 1 SPD.");
+                    user.coreSPD--;
+                    break;
+            }
+
+
             Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
             LevelUp(user);
             user.PrintCurrentStats();
@@ -391,7 +444,58 @@ namespace DungeonCore
         static void FirstMineralEvent(UserCore user)
         {
             Console.WriteLine("Save Point: " + user.savePoint);
-            Console.Write($"{Environment.NewLine}Your first mineral is... a {user.coreFirstMineral}! That really rocks.");
+            Console.Write($"{Environment.NewLine}Whew, animals sure are scary. You hope that your new {user.coreFirstAnimal} is happy in its new home.");
+            Console.Write($"{Environment.NewLine}Meanwhile, you notice your observation area has grown. There are a couple more plants scattered around.");
+            Console.Write($"{Environment.NewLine}Not only that, but there are a bunch of rocks and other minerals you can feel at the {user.coreLandscape}.");
+            Console.Write($"{Environment.NewLine}Wow... You focus on your surroundings. Your first mineral is... a {user.coreFirstMineral}! That really rocks.");
+
+            Console.Write($"{Environment.NewLine}What should you do with your new {user.coreFirstMineral}?");
+            Console.Write($"{Environment.NewLine}1 - Eat it?");
+            Console.Write($"{Environment.NewLine}2 - Mine it?");
+            Console.Write($"{Environment.NewLine}3 - Try to grow more?");
+
+            var option = Console.ReadLine();
+            int opt = 0;
+            var rand = new Random();
+            var randNum = 0;
+            randNum = rand.Next(1, 100);
+
+            if (!Int32.TryParse(option, out randNum))
+            {
+                Console.WriteLine($"Oops! You didn't enter a correct value and accidentally get confused!");
+                option = randNum.ToString();
+            }
+
+            opt = Convert.ToInt32(option);
+
+            switch (opt)
+            {
+                case 1:
+                    Console.WriteLine($"{Environment.NewLine}Mmm, tasty! You somehow manage to eat the {user.coreFirstMineral}, despite not having a mouth.");
+                    Console.WriteLine($"{Environment.NewLine}In geology, you lick science! That's how it works.");
+                    Console.WriteLine($"{Environment.NewLine}You gain 30 exp. You gain 5 HP. You gain 1 DEF.");
+                    user.coreHP = user.coreHP + 5;
+                    user.coreDEF++;
+                    break;
+                case 2:
+                    Console.WriteLine($"{Environment.NewLine}You manage to mine some of the {user.coreFirstMineral}, and it drops to the ground.");
+                    Console.WriteLine($"{Environment.NewLine}Now what? You're not sure what to do with it. Your {user.coreFirstAnimal} comes over and sits on it.");
+                    Console.WriteLine($"{Environment.NewLine}You gain 30 exp. You gain 1 SPD.");
+                    user.coreSPD++;
+                    break;
+                case 3:
+                    Console.WriteLine($"{Environment.NewLine}You try to grow more {user.coreFirstMineral} by focusing intently, and it works!");
+                    Console.Write($"Several more {user.coreFirstMineral} veins spawn in your immediate vacinity.");
+                    Console.WriteLine($"{Environment.NewLine}You gain 30 exp. You gain 5 MP.");
+                    user.coreMP = user.coreMP + 5;
+                    break;
+                default:
+                    Console.WriteLine($"{Environment.NewLine}SSoommeetthhiinngg  ssttrraannggee  hhaappppeenneedd!!");
+                    Console.WriteLine($"{Environment.NewLine}You gain 30 exp. You lose 1 SPD.");
+                    user.coreSPD--;
+                    break;
+            }
+
             Console.WriteLine($"{Environment.NewLine}Congrats! You leveled up.");
             LevelUp(user);
             user.PrintCurrentStats();
