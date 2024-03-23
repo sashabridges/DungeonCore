@@ -8,10 +8,10 @@ Then, your attributes are randomly generated.
 These starter attributes are your core's Color, Shape, your starting Landscape, and the first plant, animal, and minerals you find.
 
 Current planned features:
-- add starter animals and minerals
-- add random events that can occur
-- add saving player data to json files
-- add loading player data from json files
-- and more!
+- add starter animals and minerals :white_check_mark:
+- add random events that can occur - in progress!
+- add saving player data to json files :white_check_mark:
+- add loading player data from json files :white_check_mark:
+- and more! :white_check_mark:
 
 ![image](https://github.com/sashabridges/DungeonCore/assets/23067058/248512cc-045b-422f-a4ed-c8b193ef02eb)
